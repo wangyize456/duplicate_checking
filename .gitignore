@@ -1,0 +1,11 @@
+/.metadata/
+/RemoteSystemsTempFiles/
+/Servers/
+bin/
+lib/
+build/
+.settings/
+*.class
+*.jar
+.idea/
+/etc/result_file/*
