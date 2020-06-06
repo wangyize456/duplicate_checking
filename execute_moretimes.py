@@ -7,7 +7,7 @@ import time
 
 # 1.开始执行
 def analyze_result(path, duplicate_rate, granularity):
-    main_app(path, duplicate_rate)
+    main_app(path, duplicate_rate, granularity)
     folder_path = path[:-5] + r' - 查重log'
     all_file_num = len(list(os.walk(folder_path))[0][2]) - 1
     result = []
@@ -29,9 +29,9 @@ def analyze_result(path, duplicate_rate, granularity):
     result_final.append(result_output)
     return result_final
 
-path = r'C:\Users\admin\Desktop\BDDSSM-neinei.docx'
+path = os.getcwd() + r'\etc\result_file\【定稿版本】跃通数控IPO招股书-第六节-业务与技术（2020-6-6）.docx'
 duplicate_rate_list = [0.3, 0.4, 0.5, 0.6, 0.7]
-granularity = 15
+granularity = 25
 
 l = []
 path_result_output = path[:-5] + r' - 查重log\result_output_file'
@@ -53,7 +53,7 @@ for duplicate_rate in duplicate_rate_list:
         word.Visible = 0
         word.DisplayAlerts = 0
         normal_paragraph = '\n'.join(analyze_paragraph[::2])
-        text_find = analyze_paragraph[1]
+        text_find = analyze_paragraph[1][:30]
         s = word.Selection
         s.Start = 0
         s.End = 0
